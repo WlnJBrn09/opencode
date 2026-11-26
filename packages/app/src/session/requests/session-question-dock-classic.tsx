@@ -521,6 +521,7 @@ export const SessionQuestionDockClassic: Component<{ request: FormInfo; onSubmit
     <div
       data-component="session-question-dock"
       data-keyboard={store.keyboard}
+      data-collapsed={store.minimized || undefined}
       onPointerDown={() => setStore("keyboard", false)}
       onKeyDown={() => setStore("keyboard", true)}
     >
@@ -563,6 +564,7 @@ export const SessionQuestionDockClassic: Component<{ request: FormInfo; onSubmit
                   style={{ transform: `rotate(${hidden() * 180}deg)` }}
                   onClick={store.minimized ? restore : minimize}
                   aria-label={language.t(store.minimized ? "session.question.restore" : "session.question.minimize")}
+                  aria-expanded={!store.minimized}
                 />
               </div>
             </div>

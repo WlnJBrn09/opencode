@@ -507,3 +507,16 @@
     }
   }
 }
+
+/* Collapsed (retracted) question dock: keep only the header row so the
+   timeline stays readable, then expand to answer. The chevron toggle sets
+   data-collapsed on the dock root and already folds the options to 0px. */
+[data-component="session-question-dock"][data-collapsed]
+  [data-component="dock-prompt"][data-kind="question"]:not([data-variant="experimental"])
+  :is(
+    [data-slot="question-details"],
+    [data-slot="question-content"],
+    [data-slot="question-footer"]
+  ) {
+  display: none;
+}

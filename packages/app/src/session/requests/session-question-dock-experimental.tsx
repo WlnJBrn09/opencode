@@ -1056,7 +1056,11 @@ export const SessionQuestionDockExperimental: Component<{ request: FormInfo; onS
   }
 
   return (
-    <div data-component="session-question-dock" data-animated={questionMotion()}>
+    <div
+      data-component="session-question-dock"
+      data-animated={questionMotion()}
+      data-collapsed={store.minimized || undefined}
+    >
       <DockPrompt
         kind="question"
         variant="experimental"
@@ -1122,6 +1126,7 @@ export const SessionQuestionDockExperimental: Component<{ request: FormInfo; onS
                   disabled={sending()}
                   onClick={store.minimized ? restore : minimize}
                   aria-label={language.t(store.minimized ? "session.question.restore" : "session.question.minimize")}
+                  aria-expanded={!store.minimized}
                 />
               </div>
             </div>
