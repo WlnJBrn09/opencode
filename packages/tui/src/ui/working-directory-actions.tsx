@@ -34,9 +34,9 @@ export function useWorkingDirectoryActions(input: { directory: () => string | un
             },
           },
           {
-            title: "Open folder",
-            value: "location.open",
-            description: "in system file manager",
+            title: "Reveal in file manager",
+            value: "location.reveal",
+            description: directory,
             onSelect: (dialog) => {
               dialog.clear()
               void openPath(directory).catch(toast.error)
